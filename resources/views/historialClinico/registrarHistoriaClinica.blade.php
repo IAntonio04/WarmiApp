@@ -111,7 +111,7 @@
         </div>
         <div class="col-md-12 mt-4">
             <h2 class="text-center">Documento Médico Actual</h2>
-            <embed id="visorPDF" type="application/pdf" width="100%" height="600" readonly>
+            <embed id="visorPDF" type="application/pdf" width="100%" height="600">
         </div>
     </div>
 </div>

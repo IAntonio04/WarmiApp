@@ -6,7 +6,9 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
+                {{-- local --}}
                 {{-- <embed src="{{ route('verDocumentoPaciente', ['nombreArchivo' => $historiaClinica->archivo_adjunto_path]) }}" type="application/pdf" width="100%" height="600"> --}}
+                {{-- s3 --}}
                     <embed src="{{Storage::disk('s3')->url('hc_pacientes/'.$historiaClinica->archivo_adjunto_path) }}" type="application/pdf" width="100%" height="600">
             </div>
             <div class="modal-footer">

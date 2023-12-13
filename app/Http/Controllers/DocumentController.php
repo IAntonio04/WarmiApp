@@ -10,9 +10,19 @@ class DocumentController extends Controller
 {
     public function __construct(){
         $this->middleware("auth");
+        $this->middleware(function ($request, $next) {
+            if (auth()->check() && auth()->user()->cargo !== 'Medico') {
+                return redirect()->route('inicio')->with('message', 'No tiene permisos para acceder a este contenido')->with('type', 'error');
+            }
+            return $next($request);
+        });
     }
 
     public function descargarDocumentoMedicoInicial($nombres) {
+        // local
+        // $rutaArchivo = storage_path('app/public/hc_original/hc_inicial.pdf');
+        // return response()->download($rutaArchivo, $nombres.'_hc_inicial.pdf');
+        // s3
         $rutaArchivoS3 = 'hc_original/hc_inicial.pdf';
         $nombreDescarga = $nombres . '_hc_inicial.pdf';
     
@@ -27,6 +37,10 @@ class DocumentController extends Controller
         }
     }
     public function descargarDocumentoMedicoPerinatal($nombres) {
+        // local
+        // $rutaArchivo = storage_path('app/public/hc_original/hc_control.pdf');
+        // return response()->download($rutaArchivo, $nombres.'_hc_control.pdf');
+        // s3
         $rutaArchivoS3 = 'hc_original/hc_perinatal.doc';
         $nombreDescarga = $nombres . '_hc_perinatal.doc';
     
@@ -41,6 +55,10 @@ class DocumentController extends Controller
     }
 
     public function descargarHCPaciente($nombreArchivo) {
+        // local
+        // $rutaArchivo = storage_path("app/public/hc_pacientes/{$nombreArchivo}");
+        // return response()->download($rutaArchivo, $nombreArchivo.'.pdf');
+        // s3
         $rutaArchivoS3 = 'hc_pacientes/'.$nombreArchivo; 
         try {
             $contenidoArchivo = Storage::disk('s3')->get($rutaArchivoS3);

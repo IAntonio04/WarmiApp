@@ -17,7 +17,7 @@ class UsuarioController extends Controller
         $this->middleware("auth");
         $this->middleware(function ($request, $next) {
             if (auth()->check() && auth()->user()->cargo !== 'Administrador') {
-                return redirect()->route('inicio');
+                return redirect()->route('inicio')->with('message', 'No tiene permisos para acceder a este contenido')->with('type', 'error');
             }
     
             return $next($request);
@@ -151,7 +151,7 @@ class UsuarioController extends Controller
         }
         return redirect()->route('gestionUsuarios')->with('message', 'Usuario Eliminado exitosamente')->with('type', 'info');
     } catch (\Exception $e) {
-        return redirect()->route('gestionUsuarios')->with('message', 'Error al intentar eliminar el usuario')->with('type', 'error');
+        return redirect()->route('gestionUsuarios')->with('message', 'Error al intentar eliminar el usuario, tiene consultas pendientes')->with('type', 'error');
     }
 }
 

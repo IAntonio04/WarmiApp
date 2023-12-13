@@ -17,7 +17,7 @@
                 Confirmado
             </div>
             <div class="status-item">
-                <div class="status-circle" style="background-color: lightblue;"></div>
+                <div class="status-circle" style="background-color: rgb(35, 35, 182);"></div>
                 Atendido
             </div>
             <div class="status-item">

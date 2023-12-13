@@ -89,7 +89,7 @@
                     <div class="row g-3">
                         <div class="col-md-10 d-flex align-items-center">
                             <label for="archivo_respaldo" class="form-label">Documento:</label>
-                            <input type="file" class="form-control @error('archivo_respaldo') border border-danger @enderror" value=""  id="archivo_respaldo" name="archivo_respaldo" accept=".pdf">
+                            <input type="file" class="form-control @error('archivo_respaldo') border border-danger @enderror" value=""  id="archivo_respaldo" name="archivo_respaldo" accept=".pdf,.doc,.docx">
                             @error('archivo_respaldo')
                                 <p class="text-danger">{{ $message }}</p>
                             @enderror

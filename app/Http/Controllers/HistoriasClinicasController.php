@@ -15,7 +15,14 @@ use Illuminate\Support\Str;
 class HistoriasClinicasController extends Controller
 {
     public function __construct(){
-    $this->middleware("auth");  
+        $this->middleware("auth");
+        $this->middleware(function ($request, $next) {
+            if (auth()->check() && auth()->user()->cargo !== 'Medico') {
+                return redirect()->route('inicio')->with('message', 'No tiene permisos para acceder a este contenido')->with('type', 'error');
+            }
+    
+            return $next($request);
+        });  
 }
 public function index(Request $request) {
     $busqueda = $request->busqueda;  

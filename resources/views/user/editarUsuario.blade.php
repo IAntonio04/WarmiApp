@@ -66,7 +66,20 @@
                             </option>
                         @endforeach
                     </select>
-                </div>
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input type="password" class="form-control @error('password') border border-danger @enderror"
+                      name="password" id="password" placeholder="Contraseña">
+                    <label class=" @error('password') text-danger @enderror" for="password">Contraseña *</label>
+                    @error('password')
+                    <p class="text-danger">{{ $message }}</p>
+                    @enderror
+                  </div>
+                  <div class="form-floating mb-3">
+                    <input type="password" class="form-control" name="password_confirmation" id="password_confirmation"
+                      placeholder="Confirmar Contraseña">
+                    <label for="password_confirmation">Confirmar Contraseña *</label>
+                  </div>
                     <button class="btn btn-lg btn-primary btn-login mb-2" type="submit">Guardar cambios</button>
                 </form>
           </div>

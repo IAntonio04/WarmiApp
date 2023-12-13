@@ -27,6 +27,7 @@
         <th>DNI</th>
         <th>Diagnostico</th>
         <th>Fecha</th>
+        <th>PDF</th>
         <th>Acciones</th>
     </thead>
     <tbody>
@@ -39,8 +40,13 @@
             <td>{{ substr($historiaClinica->diagnostico, 0, 50) }}{{ strlen($historiaClinica->diagnostico) > 50 ? '...' : '' }}</td>
             <td> {{ $historiaClinica->created_at->format('Y-m-d') }}</td>
             <td>
-                <a href="#" data-bs-toggle="modal" data-bs-target="#modalDocumento{{$historiaClinica->id}}" class="btn btn-primary" > <i class="fa-solid fa-file-pdf"></i>
-                </a>
+                @if(pathinfo($historiaClinica->archivo_adjunto_path, PATHINFO_EXTENSION) === 'pdf')
+                    <a href="#" data-bs-toggle="modal" data-bs-target="#modalDocumento{{$historiaClinica->id}}" class="btn btn-primary">
+                        <i class="fa-solid fa-file-pdf"></i>
+                    </a>
+                @endif
+            </td>
+            <td>
                 <a href="/descargar-documento-paciente/{{$historiaClinica->archivo_adjunto_path}}" class="btn btn-info" download>
                     <i class="fa-solid fa-download"></i>
                 </a>
