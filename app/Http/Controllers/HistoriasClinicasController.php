@@ -120,11 +120,11 @@ public function index(Request $request) {
         $medico = Medico::where('user_id', $id)->first();
 
         $validator = Validator::make($request->all(), [
-            'archivo_respaldo' => 'nullable|file|mimes:pdf|max:2048',
+            'archivo_respaldo' => 'nullable|file|mimes:pdf,doc,docx|max:2048',
             'paciente_id' => 'required|exists:pacientes,id',
             'titulo' => 'required|string|max:255',
             'diagnostico' => 'required|string',
-            'tipo' => ['required', Rule::in(['Inicial', 'Control'])],
+            'tipo' => ['required', Rule::in(['Inicial', 'Perinatal'])],
         ]);
 
         $validator->stopOnFirstFailure();

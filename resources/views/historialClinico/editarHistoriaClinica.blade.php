@@ -79,7 +79,7 @@
                         <label for="tipo" class="form-label">Tipo:</label>
                         <select class="form-select @error('tipo') border border-danger @enderror" id="tipo" name="tipo" >
                             <option value="Inicial" {{ $hc->tipo === 'Inicial' ? 'selected' : '' }}>Inicial</option>
-                            <option value="Control" {{ $hc->tipo === 'Perinatal' ? 'selected' : '' }}>Perinatal</option>
+                            <option value="Perinatal" {{ $hc->tipo === 'Perinatal' ? 'selected' : '' }}>Perinatal</option>
                         </select>
                         @error('tipo')
                             <p class="text-danger">{{ $message }}</p>
