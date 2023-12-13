@@ -5,7 +5,7 @@
 @section('contenido')
     <hr>
     <div class="d-md-flex justify-content-md-end">
-        <form action="{{route("gestionPacientes")}}" method="GET" class="d-flex align-items-center">
+        <form action="" method="GET" class="d-flex align-items-center">
             <input type="text" name="busqueda" class="form-control">
             <button type="submit" class="btn btn-primary"><i class="fas fa-search"></i></button>
         </form>
