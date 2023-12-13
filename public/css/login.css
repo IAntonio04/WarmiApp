@@ -1,0 +1,51 @@
+*{
+  font-family: 'Poppins','sans-serif';
+}
+body{
+  height: 100vh;
+}
+.wrapper{
+ background-color: #ececec;
+ padding: 0 20px 0 20px;
+}
+.main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.row{
+    width: 900px;
+    height: 500px;
+    border-radius: 10px;
+    background-color: #fff;
+}
+.side-image{
+
+  background-image: url("../img/banner-login.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;
+  border-radius: 10px 0 0 10px;
+}
+
+img{
+  width: 400px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.8;
+}
+.text p{
+  color: #fff;
+  font-size: 18px;
+}
+.right{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
